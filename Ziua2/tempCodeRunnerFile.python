@@ -1,0 +1,102 @@
+# %%
+import pandas as pd
+import numpy as np
+
+# %%
+df = pd.read_csv("recipes.csv")
+df.head(2)
+
+# %%
+df = pd.read_csv("recipes.csv", index_col=0)
+print(df.head(2))
+
+# %%
+conditie = df["cookTimeMinutes"] <  15 
+
+# %%
+df[ df["cookTimeMinutes"] <  15 ]
+
+# %%
+df["caloriesPerServing"].min(), df["caloriesPerServing"].max()
+
+# %%
+array = np.array(df["caloriesPerServing"])
+array.sort()
+array
+
+
+# %%
+df[ df["caloriesPerServing"] == df["caloriesPerServing"].min() ]
+
+# %%
+df[ df["caloriesPerServing"] == df["caloriesPerServing"].max() ]
+
+# %%
+stanga = df["caloriesPerServing"]
+dreapta = df["caloriesPerServing"].min()
+
+df[ stanga == dreapta ]
+
+
+# %%
+df.groupby("servings").agg(['count'])
+
+# %%
+df.groupby("servings").agg(['count'])["name"]
+
+# %%
+df[df["servings"] == 24]
+
+# %%
+df.keys()
+
+# %%
+retete_noi = {
+
+    'name': ["Mici", "Ciorba"], 'prepTimeMinutes':[30, 160], 'cookTimeMinutes':[25, 60], 'servings':[3, 10],
+       'caloriesPerServing':[500, 500], 'reviewCount':[5, 10]
+
+}
+
+df_noi = pd.DataFrame(retete_noi)
+df_noi
+
+# %%
+result_df = pd.concat([df_noi, df])
+result_df.head()
+
+# %%
+result_df.reset_index().head(2)
+
+# %%
+result_df.reset_index(drop=True).head(4)
+
+# %%
+result_df.head(4)
+
+# %%
+result_df.reset_index(drop=True, inplace=True)
+
+# %%
+result_df
+
+# %%
+lista = [30, 4, 15, 26]
+lista_noua = sorted(lista)
+lista_noua
+
+
+# %%
+lista
+
+# %%
+rezultat = lista.sort()
+type(rezultat), print(rezultat)
+
+# %%
+lista
+
+# %%
+
+
+
