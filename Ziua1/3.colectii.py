@@ -1,4 +1,4 @@
-
+# LISTA
 colectie = [20, 30, 40, 50, 60]
 print(colectie, type(colectie))
 
